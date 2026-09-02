@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="まんまるお菓子工房クリッカー" />
+    <title>まんまるお菓子工房</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <h1>まんまるお菓子工房</h1>
+
+        <div class="status-grid">
+          <div class="status-box">
+            <span class="status-label">現在のお菓子</span>
+            <strong id="pointsDisplay">0</strong>
+          </div>
+          <div class="status-box">
+            <span class="status-label">1秒あたり</span>
+            <strong id="autoPowerDisplay">0</strong>
+          </div>
+          <div class="status-box">
+            <span class="status-label">タップ生産数</span>
+            <strong id="clickPowerDisplay">1</strong>
+          </div>
+          <div class="status-box">
+            <span class="status-label">累計</span>
+            <strong id="totalPointsDisplay">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="game-main">
+        <button id="bakeryButton" class="bakery-button" type="button" aria-label="お菓子を焼く">
+          <span class="bakery-shape" aria-hidden="true"></span>
+          <span class="bakery-label">お菓子を焼く</span>
+        </button>
+
+        <section class="panel">
+          <h2>工房のアップグレード</h2>
+          <div id="shopList" class="shop-list"></div>
+        </section>
+
+        <section class="panel">
+          <h2>実績</h2>
+          <ul id="achievementList" class="achievement-list"></ul>
+        </section>
+
+        <section class="panel">
+          <h2>遊び方</h2>
+          <ul class="howto-list">
+            <li>画面中央の丸い焼き菓子をタップして、お菓子を作ります。</li>
+            <li>お菓子を使って工房のアップグレードを買います。</li>
+            <li>職人や設備が増えると、自動で生産量が伸びます。</li>
+          </ul>
+        </section>
+
+        <button id="resetButton" class="reset-button" type="button">セーブデータをリセット</button>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <div id="resetModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card">
+        <p>本当にセーブデータをリセットしますか？</p>
+        <div class="modal-actions">
+          <button id="confirmReset" class="modal-button confirm" type="button">はい</button>
+          <button id="cancelReset" class="modal-button cancel" type="button">いいえ</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>

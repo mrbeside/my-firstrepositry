@@ -1,0 +1,50 @@
+/* Effects CSS: ripple, particle, and updated floating text positioning */
+
+/* Ripple */
+.ripple {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  animation: rippleAnim 620ms cubic-bezier(.2, .8, .2, 1);
+  z-index: 15;
+}
+
+@keyframes rippleAnim {
+  to { transform: translate(-50%, -50%) scale(12); opacity: 0; }
+}
+
+/* Particles */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff6d1, #ffd36a 60%, #ffb86b);
+  pointer-events: none;
+  z-index: 16;
+}
+
+/* Floating text: absolute positioned at click coords */
+.floating-point {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  color: #6b8a45;
+  font-weight: 700;
+  font-size: 1.1rem;
+  pointer-events: none;
+  animation: floatUp 0.9s ease forwards;
+  z-index: 20;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translate(-50%, -18%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -118%) scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ripple, .floating-point, .particle { animation-duration: 1ms !important; }
+}
